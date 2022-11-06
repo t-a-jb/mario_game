@@ -1,0 +1,27 @@
+.game-board {
+    position: relative;
+}
+
+.tile {
+    height: 100px;
+    width: 100px;
+    border: solid 1px black;
+    position: absolute;
+}
+
+.mario {
+    position: absolute;
+    height: 100px;
+    top: 0;
+    left: 0;
+    transform: translateX(10px);
+    transition: top 0.3s, left 0.3s;
+}
+
+.bowser {
+    position: absolute;
+    height: 100px;
+    top: 0px;
+    left: 0px:
+    transition: top 0.3s, left 0.3s;
+}
