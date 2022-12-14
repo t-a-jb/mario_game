@@ -1,12 +1,32 @@
+html {
+    background-color: lightgray;
+}
+
 .game-board {
     position: relative;
+}
+
+.score {
+    position: fixed;
+    align-items: center;
+    /* text-align: center; */
+    justify-content: center;
+    bottom: 0%;
+    right: 50%;
+    margin: 10px;
+
+    width: 25%;
+    height: auto;
+    z-index: 100;
+    background-color: lightgrey;
 }
 
 .tile {
     height: 100px;
     width: 100px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     position: absolute;
+    /* border-radius: 50%; */
 }
 
 .mario {
@@ -22,6 +42,23 @@
     position: absolute;
     height: 100px;
     top: 0px;
-    left: 0px:
+    left: 0px;
     transition: top 0.3s, left 0.3s;
+}
+
+.goomba {
+    position: absolute;
+    height: 100px;
+    top: 0px;
+    left: 0px;
+    transform: translateX(10px);
+    transition: top 0.3s, left 0.3s;
+}
+
+.coin {
+    position: absolute;
+    height: 80px;
+    top: 0;
+    left: 0;
+    transform: translateX(5px) translateY(10px);
 }
