@@ -1,4 +1,9 @@
 
+// music
+
+const audio = new Audio('./images/mario.mp3');
+audio.play();
+
 
 // create a selector function to select elements in the DOM
 
@@ -585,9 +590,8 @@ document.addEventListener('keydown', (event) => {
 
         if( (marioY === bowserY && marioX === bowserX) || (marioY === goombaY && marioX === goombaX) ) {
             gameOn = false;
-        }
 
-        if(!gameOn) {
+            if(!gameOn) {
             console.log('game over');
             alertTimeout = setTimeout( function () {
                 if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
@@ -597,6 +601,9 @@ document.addEventListener('keydown', (event) => {
                 }; 
             }, 100)
         }
+        }
+
+        
     };
 
     checkGameEnd();
@@ -780,20 +787,22 @@ let bowserMovement = function () {
     function checkGameEnd()  {
         
 
-        if(marioY === bowserY && marioX === bowserX) {
+        if( (marioY === bowserY && marioX === bowserX)  ) {
             gameOn = false;
-        }
 
-        if(!gameOn) {
+            if(!gameOn) {
             console.log('game over');
             alertTimeout = setTimeout( function () {
-                if(alert('Game Over')){
+                if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
 
                 } else {
                     window.location.reload()
                 }; 
-            }, 200)
+            }, 100)
         }
+        }
+
+        
     };
 
     checkGameEnd();
@@ -909,20 +918,19 @@ let goombaMovement = function () {
 
     function checkGameEnd()  {
         
-
-        if(marioY === goombaY && marioX === goombaX) {
+        if( (marioY === goombaY && marioX === goombaX) ) {
             gameOn = false;
-        }
 
-        if(!gameOn) {
+            if(!gameOn) {
             console.log('game over');
             alertTimeout = setTimeout( function () {
-                if(alert('Game Over')){
+                if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
 
                 } else {
                     window.location.reload()
                 }; 
-            }, 200)
+            }, 100)
+        }
         }
     };
 
