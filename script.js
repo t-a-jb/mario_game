@@ -1,8 +1,65 @@
 
-// music
+// // music
 
-const audio = new Audio('./images/mario.mp3');
-audio.play();
+// const audio = new Audio('./images/mario.mp3');
+
+// // const player = document.getElementById("player");
+
+// function playPauseTrack() {
+
+//     if( document.body.classList.contains("playing") ) {
+//         audio.pause();
+//         document.getElementById("player").classList.remove("playing");
+//         console.log('music paused');
+       
+//     } else {
+//         audio.play();
+//         document.getElementById("player").classList.add("playing")
+//         console.log('music playing');
+
+//     }
+// }
+
+let on_off = document.querySelector('.player .button');
+let audioMain = document.querySelector('.musicOn audio');
+let audioDie = new Audio('./images/deathmusic.mp3');
+let audioVictory = new Audio('./images/victorymusic.mp3');
+let audioCoin = new Audio('./images/coinmusic.mp3');
+
+on_off.onclick = function() {
+  audioMain.paused ? audioMain.play() : musicStop();
+};
+
+function musicStop() {
+  audioMain.pause();
+  audioMain.currentTime = 0;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // create a selector function to select elements in the DOM
@@ -25,7 +82,7 @@ window.onbeforeunload = function () {
 
 const color = ['brown', 'blue'];
 
-console.log(color.length)
+// console.log(color.length)
 
 // create function that calls a random color but has greater chance of green
 function ranCol () { 
@@ -402,11 +459,11 @@ let marioX = 0;
 
 let gameOn = true;
 
-function checkGameEnd()  {
-  if(marioY === bowserY && marioX === bowserX) {
-    gameOn = false;
-  }
-}
+// function checkGameEnd()  {
+//   if(marioY === bowserY && marioX === bowserX) {
+//     gameOn = false;
+//   }
+// }
 
 let marioScore = 0;
 
@@ -495,6 +552,7 @@ document.addEventListener('keydown', (event) => {
             marioScore = marioScore + 1; 
             console.log(marioScore);
             document.getElementById("total").innerHTML = `SCORE: ${marioScore} out of 6`;
+            // audioCoin.play();
         }
     }
 
@@ -503,13 +561,15 @@ document.addEventListener('keydown', (event) => {
 
     function checkCoinOne() {
         if ((marioY === coinOneY && marioX === coinOneX)) {
-            console.log(`coin one Y ${coinOneY} and X ${coinOneX} `);
+            // console.log(`coin one Y ${coinOneY} and X ${coinOneX} `);
             function hideCoinOne() {
                 document.getElementById("coinOne").style.display = "none";
                 coinOneY = 1000;
                 coinOneX = 1000;
             }
             hideCoinOne();
+            audioCoin.pause();
+            audioCoin.play();
         } 
     }
     checkCoinOne();
@@ -522,6 +582,8 @@ document.addEventListener('keydown', (event) => {
                 coinTwoX = 1000;
             }
             hideCoinTwo();
+            audioCoin.pause();
+            audioCoin.play();
         } 
     }
     checkCoinTwo();
@@ -534,6 +596,8 @@ document.addEventListener('keydown', (event) => {
                 coinThreeX = 1000;
             }
             hideCoinThree();
+            audioCoin.pause();
+            audioCoin.play();
         } 
     }
     checkCoinThree();
@@ -546,6 +610,8 @@ document.addEventListener('keydown', (event) => {
                 coinFourX = 1000;
             }
             hideCoinFour();
+            audioCoin.pause();
+            audioCoin.play();
         } 
     }
     checkCoinFour();
@@ -558,6 +624,8 @@ document.addEventListener('keydown', (event) => {
                 coinFiveX = 1000;
             }
             hideCoinFive();
+            audioCoin.pause();
+            audioCoin.play();
         } 
     }
     checkCoinFive();
@@ -570,6 +638,8 @@ document.addEventListener('keydown', (event) => {
                 coinSixX = 1000;
             }
             hideCoinSix();
+            audioCoin.pause();
+            audioCoin.play();
         } 
     }
     checkCoinSix();
@@ -592,18 +662,21 @@ document.addEventListener('keydown', (event) => {
             gameOn = false;
 
             if(!gameOn) {
-            console.log('game over');
-            alertTimeout = setTimeout( function () {
-                if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
+                console.log('game over');
 
-                } else {
-                    window.location.reload()
-                }; 
-            }, 100)
-        }
-        }
+                musicStop();
 
-        
+                alertTimeout = setTimeout( function () {
+                    if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
+
+                    } else {
+                        window.location.reload()
+                    }; 
+                }, 100)
+
+                audioDie.play();
+            };
+        };      
     };
 
     checkGameEnd();
@@ -625,10 +698,12 @@ document.addEventListener('keydown', (event) => {
                         window.location.reload()
                     }; 
                 }, 100)
-            }
-        }
 
-        
+                musicStop();
+
+                audioVictory.play();
+            };
+        };
     };
 
     checkGameWon();
@@ -705,9 +780,9 @@ let bowserMovement = function () {
         let diffbetweenY = marioY - bowserY;
         let diffbetweenX = marioX - bowserX;
 
-        console.log(`diff between Y ${diffbetweenY}`);
-        console.log(`diff between X ${diffbetweenX}`);
-        console.log(diffbetweenX)
+        // console.log(`diff between Y ${diffbetweenY}`);
+        // console.log(`diff between X ${diffbetweenX}`);
+        // console.log(diffbetweenX)
 
 
 
@@ -791,18 +866,21 @@ let bowserMovement = function () {
             gameOn = false;
 
             if(!gameOn) {
-            console.log('game over');
-            alertTimeout = setTimeout( function () {
-                if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
+                console.log('game over');
 
-                } else {
-                    window.location.reload()
-                }; 
-            }, 100)
-        }
-        }
+                musicStop();
 
-        
+                alertTimeout = setTimeout( function () {
+                    if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
+
+                    } else {
+                        window.location.reload()
+                    }; 
+                }, 100)
+
+                audioDie.play();
+            };
+        };     
     };
 
     checkGameEnd();
@@ -871,8 +949,8 @@ let placeGoomba = function () {
 
 placeGoomba();
 
-console.log(`Goomba X is ${goombaX}`);
-console.log(`Goomba Y is ${goombaY}`);
+// console.log(`Goomba X is ${goombaX}`);
+// console.log(`Goomba Y is ${goombaY}`);
 
 
 
@@ -893,7 +971,7 @@ function generateZeroToFour (min = 0, max = 4) {
 
 let goombaMovement = function () {
     generateZeroToFour();
-    console.log(generateZeroToFour());
+    // console.log(generateZeroToFour());
 
     function goombaMove() {
         // Goomba Down
@@ -922,15 +1000,20 @@ let goombaMovement = function () {
             gameOn = false;
 
             if(!gameOn) {
-            console.log('game over');
-            alertTimeout = setTimeout( function () {
-                if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
+                console.log('game over');
 
-                } else {
-                    window.location.reload()
-                }; 
-            }, 100)
-        }
+                musicStop();
+
+                alertTimeout = setTimeout( function () {
+                    if(alert('GAME OVER!!! Bowser and Goomba ate you for breakfast.')){
+
+                    } else {
+                        window.location.reload()
+                    }; 
+                }, 100)
+
+                audioDie.play();
+            }
         }
     };
 

@@ -62,3 +62,29 @@ html {
     left: 0;
     transform: translateX(5px) translateY(10px);
 }
+
+
+.player {
+    position: fixed;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    top: 0%;
+    right: 0%;
+    margin: 10px;
+    padding: 10px;
+
+    height: 80px;
+    z-index: 101;
+    background-color: darkgrey;
+    opacity: 1;
+
+    cursor: pointer;
+}
+
+   
+  /* Change the opacity when mouse is hovered */
+  .player:hover{
+    opacity: 1.0;
+    background-color: white;
+  }
